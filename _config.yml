@@ -9,7 +9,7 @@
 title                    : "Xuanru Dai"
 description              : "Université Paris-Saclay"
 repository               : "xrudai/xrudai.github.io" 
-google_scholar_stats_use_cdn : true
+google_scholar_stats_use_cdn : false
 
 # Site Author
 author:
