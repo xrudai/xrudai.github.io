@@ -1,0 +1,36 @@
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item"><a href="#about-me" target="_self" class="nav-anchor">Homepage</a></li>
+          {% for link in site.data.navigation.main %}
+            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}" target="_self" class="nav-anchor">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.nav-anchor').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      var hash = this.getAttribute('href').split('#')[1];
+      if (!hash) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        history.replaceState(null, '', window.location.pathname);
+        return;
+      }
+      var target = document.getElementById(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        history.replaceState(null, '', window.location.pathname);
+      }
+    });
+  });
+});
+</script>
